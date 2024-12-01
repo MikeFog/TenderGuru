@@ -2,3 +2,6 @@ flask
 requests
 tiktoken
 fitz
+bs4
+openai
+pathlib
