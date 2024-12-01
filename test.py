@@ -146,7 +146,7 @@ def greet():
 
     # Укажи свой API-ключ
     openai_key = os.getenv('OpenAI')
-    client = OpenAI(openai_key)
+    client = OpenAI(api_key = openai_key)
     relevant_chunks = []
 
     # Обрабатываем каждый блок
