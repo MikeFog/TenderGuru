@@ -5,3 +5,4 @@ PyMuPDF
 bs4
 openai
 pathlib
+python-docx
