@@ -145,7 +145,7 @@ def greet():
     chunks = split_text_into_chunks(combined_text, max_tokens=8000)
 
     # Укажи свой API-ключ
-    openai_key = os.getenv('OpenAI')
+    openai_key = os.getenv('OpenAI_KEY')
     client = OpenAI(api_key = openai_key)
     relevant_chunks = []
 
