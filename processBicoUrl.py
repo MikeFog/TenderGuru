@@ -8,9 +8,13 @@ import requests
 from downloadBicoFiles import download_files
 from TalkWithOpenAI import ask_questions
 
+def get_tener_no(url):
+    # Разбить строку по символу "/"
+    parts = url.strip('/').split('/')
+    return parts[-1]
+
 app = Flask(__name__)
 @app.route('/processUrl')
-
 def main():
     time1 = datetime.now()
     url = request.args.get('url', 'https://www.bicotender.ru/tc/tender/show/tender_id/282439881/')
@@ -53,8 +57,15 @@ def main():
     minutes, seconds = divmod(time_difference.seconds, 60)
 
     print(f"Прошло времени: {minutes}:{seconds}")
+    tender_no = get_tener_no(url)
 
-    return res
+    # Формируем сложный объект для возврата
+    result = {
+        "contest_name": tender_no,
+        "description": res
+    }
+    return result
+    #return res
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 10000))  # Default to Render's port 10000

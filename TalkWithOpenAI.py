@@ -82,13 +82,7 @@ def split_text_into_chunks(text, max_tokens=8000):
 
 def ask_questions(output_dir, questions):
 
-    # Формируем сложный объект для возврата
-    result = {
-        "contest_name": "Конкурс №31231",
-        "description": "Test"
-    }
-
-    return jsonify(result)
+    return "dddddddddddd"
 
 
     # Чтение текста из всех файлов
