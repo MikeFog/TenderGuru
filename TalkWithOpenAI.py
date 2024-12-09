@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from docx import Document
 import fitz
+from flask import jsonify
 from openai import OpenAI
 import tiktoken
 #import win32com.client
@@ -80,6 +81,16 @@ def split_text_into_chunks(text, max_tokens=8000):
     return chunks
 
 def ask_questions(output_dir, questions):
+
+    # Формируем сложный объект для возврата
+    result = {
+        "contest_name": "Конкурс №31231",
+        "description": "Test"
+    }
+
+    return jsonify(result)
+
+
     # Чтение текста из всех файлов
     files_text = {}
 
