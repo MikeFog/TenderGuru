@@ -4,7 +4,7 @@ from docx import Document
 import fitz
 from openai import OpenAI
 import tiktoken
-import win32com.client
+#import win32com.client
 
 def clean_file(file_path, output_path):
     with open(file_path, 'rb') as file:
@@ -35,20 +35,20 @@ def extract_text_from_docx(file_path):
     return text
 
 # Функция для извлечения текста из DOCX
-def extract_text_from_doc(file_path):
-    # Создаем объект COM для Microsoft Word
-    word = win32com.client.Dispatch("Word.Application")
+# def extract_text_from_doc(file_path):
+#     # Создаем объект COM для Microsoft Word
+#     word = win32com.client.Dispatch("Word.Application")
 
-    # Открываем DOC-файл
-    doc = word.Documents.Open(file_path)
+#     # Открываем DOC-файл
+#     doc = word.Documents.Open(file_path)
 
-    # Извлекаем текст из документа
-    text = doc.Content.Text
+#     # Извлекаем текст из документа
+#     text = doc.Content.Text
 
-    # Закрываем документ и приложение Word
-    doc.Close(False)
-    word.Quit()
-    return text
+#     # Закрываем документ и приложение Word
+#     doc.Close(False)
+#     word.Quit()
+#     return text
 
 # Функция для извлечения текста (пример из предыдущих шагов)
 def extract_text_from_file(file_path):
@@ -56,8 +56,8 @@ def extract_text_from_file(file_path):
         return extract_text_from_pdf(file_path)  # Используй свою функцию
     if file_path.endswith(".docx"):
         return extract_text_from_docx(file_path)  # Используй свою функцию
-    if file_path.endswith(".doc"):
-        return extract_text_from_doc(file_path)  # Используй свою функцию
+    # if file_path.endswith(".doc"):
+    #     return extract_text_from_doc(file_path)  # Используй свою функцию
     if file_path.endswith(".html"):
         return extract_text_from_txt(file_path)
     else:
